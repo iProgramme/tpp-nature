@@ -186,6 +186,7 @@ header p {
   position: relative;
 }
 .content .canv canvas {
+  padding-left: 20px;
   position: absolute;
   left: 0;
   top: 0;
