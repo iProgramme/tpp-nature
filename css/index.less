@@ -1,0 +1,120 @@
+@charset "UTF-8";
+html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img {margin: 0;padding: 0; }
+fieldset, img, input, button {border: none;padding: 0;margin: 0;outline-style: none;}
+ul, ol {list-style: none;}
+input {padding-top: 0;padding-bottom: 0;font-family: "SimSun", "宋体"; }
+select, input {vertical-align: middle;}
+select, input, textarea {font-size: 12px;margin: 0;}
+textarea {resize: none;}
+img {border: 0;vertical-align: middle; }
+table {border-collapse: collapse; }
+body {font: 12px/150% "Microsoft YaHei",Arial, Verdana, "\5b8b\4f53";color: #000;background: #fff;}
+.clear:before, .clear:after {content: "";display: table; }
+.clear:after {clear: both;}
+.clear{*zoom: 1;}
+a {color: #666;text-decoration: none;-webkit-tap-highlight-color:transparent}
+a:hover {color: #C81623;}
+h1, h2, h3, h4, h5, h6 {text-decoration: none; }
+s, i, em {font-style: normal; text-decoration: none;}
+.fl {float: left;}
+.fr {float: right;}
+.disN {display: none;}
+
+
+@font-face {font-family: "tpp";
+  src: url('iconfont.eot?t=1499063700937'); /* IE9*/
+  src: url('iconfont.eot?t=1499063700937#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('iconfont.woff?t=1499063700937') format('woff'), /* chrome, firefox */
+  url('iconfont.ttf?t=1499063700937') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('iconfont.svg?t=1499063700937#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family:"tpp" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-danrenzuowei1:before { content: "\e604"; }
+
+.icon-arrow-left:before { content: "\e601"; }
+
+.icon-danrenzuowei:before { content: "\e600"; }
+
+
+
+//头部
+header{
+  position: relative;
+  text-align: center;
+  height:40px;
+  line-height:40px;
+  border-bottom: 1px solid #ebebeb;
+  a{
+    position: absolute;
+    left:10px;
+  }
+  p{
+    font-size:16px;
+  }
+}
+
+//基本信息
+.header{
+  padding:10px;
+  border-bottom: 1px solid #ebebeb;
+  h3{
+    padding-bottom:10px;
+  }
+  p{
+    color: #666;
+  }
+}
+
+//表格
+.content{
+  border-bottom: 1px solid #ebebeb;
+  text-align: center;
+  ul{
+    padding:10px 0;
+    li{
+      display: inline-block;
+      margin:0 5px;
+      i{
+        position: relative;
+        top:3px;
+      }
+      .colorRed{
+        color: yellow;
+      }
+      .dash{
+        display: inline-block;
+        border: 1px dashed #000;
+        width: 15px;
+        height:13px;
+        border-radius: 3px;
+        margin-right:5px;
+      }
+    }
+
+  }
+  .canv{
+    width:100%;
+    min-height:400px;
+    overflow: hidden;
+    position: relative;
+    canvas{
+      position: absolute;
+      left:0;
+      top:0;
+      background-color: #efeef4;
+    }
+  }
+
+
+}
+
+
+

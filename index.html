@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta charset="UTF-8">
+  <title>淘票票</title>
+  <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+
+<header>
+  <a href="#"><i class="iconfont icon-arrow-left"></i></a>
+  <p>变形金刚5:最后的骑士</p>
+</header>
+
+<div class="main">
+  <!--基本信息-->
+  <div class="header">
+    <h3>广州飞扬电影城-高德店</h3>
+    <p>今天 07-03 11:00（英语3D）</p>
+  </div>
+
+  <!--座位表-->
+  <div class="content">
+    <ul>
+      <li><i class="iconfont icon-danrenzuowei1"></i>可选</li>
+      <li><i class="iconfont icon-danrenzuowei colorRed"></i>已售</li>
+      <li><i class="iconfont icon-danrenzuowei"></i>已选</li>
+      <li><i class="dash"></i>最佳观影区</li>
+    </ul>
+    <div class="canv">
+      <canvas class="canvas" id="canvas" width="1000" height="600">您的浏览器不支持canvas</canvas>
+
+    </div>
+  </div>
+</div>
+<!--缩放-->
+<script src="js/touch.min.js"></script>
+<script src="js/zepto.min.js"></script>
+<script src="js/pinchzoom.js"></script>
+
+<script src="js/index.js"></script>
+
+</body>
+</html>
