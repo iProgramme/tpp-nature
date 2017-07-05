@@ -31,8 +31,18 @@ function selectSeat(e) {
   // console.log(e.offsetX);
   // var p=32*55/100;
   flagD?p = 320/1000*55:p=55
-  var x = Math.floor(e.pageX / p)
-  var y = Math.floor((e.pageY-150) / p)
+  // 当放大之后,要拿到 translate 的值
+  var arrnei = (canvas.style.transform+"").slice(10).split("px");
+  if (arrnei[1]) {
+    arrnei[1]=arrnei[1].slice(2)
+  }else{
+    arrnei[0]=0;
+    arrnei[1]=0;
+  }
+
+  console.log(arrnei)
+  var x = Math.floor((-arrnei[0]+e.pageX) / p)
+  var y = Math.floor((-arrnei[1]+e.pageY-150) / p)
 // console.log(seat)
   // 首先判断原来这个地方是否有座位可点
   for (var k = 0; k < arr.length; k++) {
