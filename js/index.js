@@ -40,7 +40,7 @@ function selectSeat(e) {
     arrnei[1]=0;
   }
 
-  console.log(arrnei)
+  // console.log(arrnei)
   var x = Math.floor((-arrnei[0]+e.pageX) / p)
   var y = Math.floor((-arrnei[1]+e.pageY-150) / p)
 // console.log(seat)
@@ -84,13 +84,23 @@ var time = {
   t1:0,
   t2:0
 }
+// 记录当前的 transform 的值
+var arrmove = [];
 canvas.addEventListener("touchstart",function (e) {
+  arrmove = (canvas.style.transform+"").slice(10).split("px");
+  if (arrmove[1]) {
+    arrmove[1]=arrmove[1].slice(2)
+  }else{
+    arrmove[0]=0;
+    arrmove[1]=0;
+  }
   px = e.touches[0].clientX
   py = e.touches[0].clientY
   mouse = e
   removeTransition()
 })
 canvas.addEventListener("touchmove",function (e) {
+
   var x = e.touches[0].clientX
   var y = e.touches[0].clientY
   if (e.touches[1]) {
@@ -100,7 +110,7 @@ canvas.addEventListener("touchmove",function (e) {
   // alert(x2-x)
   movex = x-px
   movey = y-py
-  canvas.style.transform = "translate("+(movex+endx)+"px,"+(movey+endy)+"px)"
+  canvas.style.transform = "translate("+(+arrmove[0]+movex+endx)+"px,"+(+arrmove[1]+movey+endy)+"px) scale(1)"
 })
 canvas.addEventListener("touchend",function (e) {
   time.t1 = +new Date()
@@ -111,20 +121,10 @@ canvas.addEventListener("touchend",function (e) {
   var lx = -e.changedTouches[0].clientX/32*100+160
   var ly = -(e.changedTouches[0].clientY-200)/32*100
 
-  endx = movex+endx
-  endy = movey+endy
-  if (endx>=0) {
-    endx = 0
-  }
-  if (endx<=-680) {
-    endx = -680
-  }
-  if (endy>=0) {
-    endy = 0
-  }
-  if (endy<=-200) {
-    endy = -200
-  }
+  var qx = (+arrmove[0]+movex+endx)
+  var qy = (+arrmove[1]+movey+endy)
+  // endx = movex+endx
+  // endy = movey+endy
   // 若 true 说明是双击事件
   if (time.t2-time.t1<300) {
     // console.log("双击")
@@ -151,14 +151,35 @@ canvas.addEventListener("touchend",function (e) {
       console.log(lx)
       canvas.style.transformOrigin = "0px 0px"
       canvas.style.transform = "translate("+lx+"px,"+ly+"px) scale(1)"
-
     }
     setTimeout(removeTransition,400)
   }else{
+    if (qx>=0) {
+      qx=0
+    }
+    if (qx<=-680) {
+      qx=-680
+    }
+    if (qy>=0) {
+      qy = 0
+    }
+    if (qy<=-200) {
+      qy = -200
+    }
+    canvas.style.transformOrigin = qx+"px "+qy+"px"
+    if (flagD) {
+      canvas.style.transform = "translate("+qx+"px,"+qy+"px) scale(0.32)"
+    }else{
+      canvas.style.transform = "translate("+qx+"px,"+qy+"px) scale(1)"
+    }
+
+
     selectSeat(e.changedTouches[0])
   }
   movex = 0
   movey = 0
+  endx=0
+  endy=0
   px = 0
   py = 0
 
